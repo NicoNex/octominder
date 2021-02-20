@@ -1,0 +1,7 @@
+[reminder.water]
+message = "Don't forget to drink water!"
+tick = 1
+
+[reminder.break]
+message = "Time for a break!"
+tick = 2
