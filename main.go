@@ -64,7 +64,12 @@ func main() {
 	logger = log.New(logfile, "", log.LstdFlags)
 
 	for k, rem := range cfg.Reminders {
-		go tick(k, rem.Msg, time.Tick(time.Minute*time.Duration(rem.Tick)))
+		duration, err := time.ParseDuration(rem.Tick)
+		if err != nil {
+			logger.Println(err)
+			continue
+		}
+		go tick(k, rem.Msg, time.Tick(duration))
 		logger.Println(fmt.Sprintf("%q reminder enabled..", k))
 	}
 	select {}

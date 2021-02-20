@@ -22,7 +22,7 @@ import "github.com/BurntSushi/toml"
 
 type Reminder struct {
 	Msg  string `toml:"message"`
-	Tick int    `toml:"tick"`
+	Tick string `toml:"repeat"`
 }
 
 type Config struct {

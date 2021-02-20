@@ -1,7 +1,11 @@
 [reminder.water]
 message = "Don't forget to drink water!"
-tick = 1
+repeat = "20m"
 
 [reminder.break]
 message = "Time for a break!"
-tick = 2
+repeat = "30s"
+
+[reminder.break]
+message = "Eat something!"
+repeat = "5h30m"
