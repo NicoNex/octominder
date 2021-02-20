@@ -19,6 +19,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -44,6 +45,10 @@ func tick(summary, body string, tch <-chan time.Time) {
 }
 
 func main() {
+	flag.StringVar(&cfgpath, "c", cfgpath, "Config file.")
+	flag.Usage = usage
+	flag.Parse()
+
 	cfg, err := readConfig(cfgpath)
 	if err != nil {
 		fmt.Println(err)
@@ -63,4 +68,18 @@ func main() {
 		logger.Println(fmt.Sprintf("%q reminder enabled..", k))
 	}
 	select {}
+}
+
+func usage() {
+	fmt.Printf(`octominder - A simple reminder for humans.
+Octominder reminds you about stuff.
+Usage:
+    %s [OPTIONS]
+Options:
+    -c  string
+        Specify a config file to use (default %s).
+    -h, --help
+        Prints this help message and exits.
+Copyright (C) 2021 Nicolò Santamaria
+`, os.Args[0], filepath.Join(os.Getenv("HOME"), ".config", "octominder.toml"))
 }
