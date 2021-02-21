@@ -22,3 +22,5 @@ repeat = "30s"
 message = "Eat something!"
 repeat = "5h30m"
 ```
+
+![example_img](./imgs/scrot.png)
