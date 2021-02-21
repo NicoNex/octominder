@@ -6,6 +6,6 @@ repeat = "20m"
 message = "Time for a break!"
 repeat = "30s"
 
-[reminder.break]
+[reminder.eat]
 message = "Eat something!"
 repeat = "5h30m"
